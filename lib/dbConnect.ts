@@ -11,7 +11,9 @@ function getMongoURI(
     return method + "://" + username + ":" + password + "@" + host + "/?" + params;
 }
 
-export default async function connectToDB(callback: (err: any, connection: DBConnection) => void): Promise<DBConnection> {
+export default async function connectToDB(
+    callback: (err: any, connection: DBConnection) => void
+): Promise<DBConnection> {
     try {
         const { MONGO_USERNAME, MONGO_PASSWORD, MONGO_METHOD, MONGO_HOST, MONGO_PARAMS } = config();
         const uri = getMongoURI(

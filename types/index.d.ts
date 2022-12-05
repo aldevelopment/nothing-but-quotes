@@ -4,7 +4,7 @@ declare global {
     let dbConnection: CachedDBConnection;
 
     type DBConnection = Connection | null;
-    type QuoteCategory = 'humor'
+    type QuoteCategory = "humor" | "all";
 
     interface CachedDBConnection {
         connection: DBConnection;
@@ -17,5 +17,19 @@ declare global {
         author: string;
         category: QuoteCategory;
         submittedAt: Date;
+        updatedAt: Date;
+    }
+
+    interface QuoteProposal {
+        text: string;
+        author: string;
+        category: string;
+    }
+
+    interface QuoteUpdateProposal {
+        id: ObjectId;
+        text?: string;
+        author?: string;
+        category?: string;
     }
 }
